@@ -1,18 +1,11 @@
-import mongoose from "mongoose";
+import { Pool } from "pg";
 
-const connectDb = () => {
-  try {
-    mongoose
-      .connect(process.env.DB_URL)
-      .then(() => {
-        console.log("DB connected...");
-      })
-      .catch((err) => {
-        throw err;
-      });
-  } catch (error) {
-    throw error;
-  }
-};
+const pool = new Pool({
+  user: "macbookair",
+  host: "localhost",
+  database: "homework",
+  password: "",
+  port: 5432,
+});
 
-export { connectDb };
+export default pool;
