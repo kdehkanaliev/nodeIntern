@@ -5,6 +5,8 @@ env.config();
 
 import router from "./routes/user.route.js";
 import productRouter from "./routes/product.route.js";
+import orderRouter from "./routes/orders.route.js";
+import healthRouter from "./routes/healthcheck.route.js";
 
 let app = express();
 
@@ -12,5 +14,7 @@ app.use(express.json());
 
 app.use("/api/v1/users", router);
 app.use("/api/v1", productRouter);
+app.use("/api/v1", orderRouter);
+app.use("api/v1/health", healthRouter);
 
 export default app;
